@@ -1,0 +1,14 @@
+### baseurl
+@baseurl = http://localhost:5000/
+
+### get all posts
+GET http://localhost:5000/api/posts
+
+### get one post
+GET http://localhost:5000/api/posts/the-great-couch-jump
+
+### get all categories
+GET http://localhost:5000/api/categories
+
+### get posts by categories
+GET http://localhost:5000/api/categories/adventures/posts
