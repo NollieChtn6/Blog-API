@@ -38,6 +38,17 @@ const dataMapper = {
     const values = [categorySlug]
     const results = await client.query(query, values);
     return results.rows;
+  },
+
+  async createPost(postData) {
+    const { categoryId, slug, title, author, excerpt, content } = postData;
+    const query = `
+      INSERT INTO posts (categoryId, slug, title, author, excerpt, content)
+      VALUES ($1, $2, $3, $4, $5, $6)
+    `;
+    const dataValues = [categoryId, slug, title, author, excerpt, content]
+    const newPost = await client.query(query, dataValues);
+    return newPost.rowCount;
   }
 };
 
