@@ -42,6 +42,22 @@ const postsController = {
       console.error(`Error fetching posts for category ${categorySlug}:`, error);
       res.status(500).send(`Server Error: Unable to fetch posts for category ${categorySlug}`);
     };
+  },
+
+  // create new post
+  addNewPost: async(req, res) => {
+    const postDetails = req.body;
+    try {
+      const rowCount = await dataMapper.createPost(postDetails);
+      if (rowCount !== 1 ) {
+        response.status(500).send('No post created');
+      } else {
+        res.status(201).send('Post has been created');
+      };
+    } catch (error) {
+      console.error('Error creating post:', error);
+      res.status(500).send('Server Error');
+    };
   }
 };
 
