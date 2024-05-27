@@ -11,6 +11,7 @@ const validateSlug = require('./middleware/validateSlug');
 // Define routes for posts
 router.get('/posts', postsController.getPostsList);
 router.get('/posts/:postSlug', validateSlug, postsController.getOnePost);
+router.post('/posts/add-new-post', postsController.addNewPost);
 
 // Define routes for categories
 router.get('/categories', categoriesController.getCategoriesList);
