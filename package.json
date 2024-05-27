@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "db:create": "psql -U patate -d potatoblog -f app/data/create_db.sql",
+    "db:seed": "psql -U patate -d potatoblog -f app/data/seed_db.sql",
+    "db:reset": "npm run db:create && npm run db:seed"
   },
   "keywords": [
     "nodejs",
