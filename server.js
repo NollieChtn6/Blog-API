@@ -1,9 +1,19 @@
 require(`dotenv`).config();
 
 const express = require('express');
+const cors = require(`cors`);
 const app = express();
-
 const router = require('./app/router');
+
+app.use(
+  cors({
+    // Allow frontend development servers only
+    origin: [
+      'http://localhost:5173',
+      'http://localhost:5174',
+    ],
+  })
+);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
