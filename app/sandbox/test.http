@@ -12,3 +12,16 @@ GET http://localhost:5000/api/categories
 
 ### get posts by categories
 GET http://localhost:5000/api/categories/adventures/posts
+
+### create new post
+POST http://localhost:5000/api/posts/add-new-post
+Content-Type: application/json
+
+{
+  "categoryId": 1,
+  "slug": "lorem-ipsum",
+  "title": "Lorem Ipsum",
+  "author": "Patate",
+  "excerpt": "Lorem Ipsum",
+  "content": "Lorem Ipsum"
+}
