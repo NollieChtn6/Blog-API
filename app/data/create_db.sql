@@ -25,6 +25,7 @@ CREATE TABLE posts (
     author VARCHAR(50) NOT NULL,
     excerpt TEXT,
     content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (categoryId) REFERENCES categories(id)
 );
 
